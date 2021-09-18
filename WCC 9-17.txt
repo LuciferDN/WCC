@@ -1,0 +1,55 @@
+package testing;
+import java.lang.Math;
+import java.util.ArrayList;
+
+public class wcc {
+
+	public static void main(String[] args) {
+		String a = "abcmxyz";
+		int b = 75;
+		System.out.println(rot13(a));
+		decToct(b);
+	}
+	
+	public static String rot13(String s)
+	{
+		char [] temp = s.toCharArray();
+		
+		for(int i = 0; i < temp.length; i++)
+		{
+			if((temp[i] >= 65 && temp[i] <= 77) || (temp[i] >= 97 && temp[i] <= 109))
+			{
+				temp[i] = (char) (temp[i] + 13);
+			}
+			
+			else if((temp[i] >= 78 && temp[i] <= 90) || (temp[i] >= 110 && temp[i] <= 122))
+			{
+				temp[i] = (char) (temp[i] - 13);
+			}
+		}
+		
+		s = String.valueOf(temp);
+		return s;
+	}
+
+	public static void decToct(int d)
+	{
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		ArrayList<Integer> rev = new ArrayList<Integer>();
+		while(d > 8)
+		{
+			temp.add(d % 8);
+			d = d / 8;
+		}
+		
+		temp.add(d);
+		
+		for(int i = 0; i < temp.size(); i ++)
+		{
+			System.out.print(temp.get(temp.size() - i - 1));
+		}
+		
+		System.out.println();
+		
+	}
+}
