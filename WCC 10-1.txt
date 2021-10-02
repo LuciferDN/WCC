@@ -1,0 +1,23 @@
+package testing;
+
+public class wcc3 {
+
+	public static void main(String[] args) {
+		int a = 1;
+		int b = 2;
+		swap(a, b);
+
+	}
+	
+	public static void swap(int a, int b)
+	{
+		System.out.println("Before swap, the first number is: " + a + ", the second number is: " + b);
+		
+		a = a + b; 
+		b = a - b; // b is now a since a + b (original b) - b (original b) is a (the value of original a)
+		a = a - b; // a is now b since a + b (original b) - b (the value of original a) is b (the value of original b)
+
+		System.out.println("After swap, the first number is: " + a + ", the second number is: " + b);
+	}
+
+}
