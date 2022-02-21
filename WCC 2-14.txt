@@ -1,0 +1,39 @@
+package testing;
+import java.lang.Math;
+
+
+public class wcc2 {
+
+	public static void main(String[] args) {
+		System.out.println(actualMemorySize("32GB"));
+		System.out.println(actualMemorySize("2GB"));
+		System.out.println(actualMemorySize("512MB"));
+
+	}
+	
+	public static String actualMemorySize(String ms)
+	{
+		String ans = null;
+		String temp = ms.substring(0, ms.length() - 2);
+		String gom = ms.substring(ms.length() - 2);
+		double number = Double.parseDouble(temp);
+		
+		if(number * (1 - 0.07) < 1 && gom.equals("GB"))
+		{
+			ans = String.valueOf(Math.round(number * 1024 * (1 - 0.07))) + "MB";
+		}
+		
+		else if(number * (1 - 0.07) >= 1 && gom.equals("GB"))
+		{
+			ans = String.format("%.2f", number * (1 - 0.07)) + "GB";
+		}
+		
+		else if(gom.equals("MB"))
+		{
+			ans = String.valueOf(Math.round(number * (1 - 0.07))) + "MB";
+		}
+		
+		return ans;
+	}
+
+}
