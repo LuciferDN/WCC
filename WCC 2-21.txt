@@ -1,0 +1,41 @@
+package testing;
+
+public class wcc4_1 {
+
+	public static void main(String[] args) {
+		System.out.print(concatenated());
+
+	}
+	
+	public static int concatenated()
+	{
+		
+		int result = 0;
+		for(int i = 0; i < 10000; i++)
+		{
+			StringBuilder s = new StringBuilder();
+			s.append(i);
+			
+			int n = 2;
+			while(s.length() < 9)
+			{
+				s.append(i * n);
+				n++;
+			}
+			
+			if(s.length() == 9)
+			{
+				if(s.toString().contains("1") && s.toString().contains("2") && s.toString().contains("3") && s.toString().contains("4") && s.toString().contains("5") && s.toString().contains("6") && s.toString().contains("7") && s.toString().contains("8") && s.toString().contains("9"))
+				{
+					if(result < Integer.parseInt(String.valueOf(s)))
+					{
+						result = Integer.parseInt(String.valueOf(s));
+					}
+				}
+			}
+			
+		}
+		return result;
+	}
+
+}
