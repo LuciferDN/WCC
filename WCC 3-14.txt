@@ -1,0 +1,54 @@
+package testing;
+
+import java.util.Stack;
+
+public class WCC_3_14 {
+
+	public static class NewStack
+	{
+		Stack <Integer> s = new Stack <Integer>();
+		int max;
+		
+		public int Max() {
+			if(s.empty())
+			{
+				System.out.println("ERROR, EMPTY STACK");
+				return 0;
+			}
+			return max;
+		}
+		
+		public void push(int a)
+		{
+			s.push(a);
+			if(a > max)
+			{
+				max = a;
+			}
+		}
+		
+		public int pop()
+		{
+			if(s.empty())
+			{
+				System.out.println("ERROR, EMPTY STACK");
+				return 0;
+			}
+			int ans = s.peek();
+			s.pop();
+			return ans;
+		}
+
+	};
+	public static void main(String[] args) {
+		NewStack s = new NewStack();
+		s.push(1);
+		System.out.println(s.pop());
+		s.push(5);
+		s.push(10);
+		s.push(3);
+		System.out.println(s.Max());
+		
+	}
+
+}
